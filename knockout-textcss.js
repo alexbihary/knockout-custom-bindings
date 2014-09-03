@@ -30,6 +30,21 @@
         return names.join(" > ");
     }
 
+    function cssPropertyFor(attr) {
+        var property = '',
+            lowerCaseA = 'a'.charCodeAt(0);
+
+        for (var i = 0; i < attr.length; i++) {
+            if (attr.charCodeAt(i) < lowerCaseA) {
+                property += '-' + attr[i].toLowerCase();
+            } else {
+                property += attr[i];
+            }
+        }
+
+        return property;
+    }
+
     function cssRuleIsValid(attr, value) {
         return document.documentElement.style[attr] !== undefined && typeof ko.unwrap(value) === 'string';
     }
@@ -41,7 +56,7 @@
 
         ko.utils.objectForEach(ko.unwrap(styles) || {}, function (attr, value) {
             if (cssRuleIsValid(attr, value)) {
-                var rule = prefix + attr + separator + value;
+                var rule = prefix + cssPropertyFor(attr) + separator + value;
                 rules.push(rule);
             }
         });
