@@ -1,5 +1,5 @@
-// <styles data-bind="textcss: { selector:'body:hover', css:{ border:'2px solid red' } }"></styles>
-// <pre data-bind="textcss: { css:{ border:'2px solid red' } }"></pre>
+// <styles data-bind="textcss: { selector:'body:hover', styles:{ border:'2px solid red' } }"></styles>
+// <pre data-bind="textcss: { styles:{ border:'2px solid red' } }"></pre>
 
 ;(function (factory) {
     //CommonJS
