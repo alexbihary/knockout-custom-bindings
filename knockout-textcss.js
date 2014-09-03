@@ -40,9 +40,10 @@
             prefix = !!pretty ? '\n  ' : '';
 
         ko.utils.objectForEach(ko.unwrap(styles) || {}, function (attr, value) {
-            if (cssRuleIsValid(attr, value))
+            if (cssRuleIsValid(attr, value)) {
                 var rule = prefix + attr + separator + value;
                 rules.push(rule);
+            }
         });
 
         return rules.join(';');
@@ -60,7 +61,7 @@
                         : settings.selector || selectorPath(element);
 
                 if (!selector) return;
-                element.innerText = selector + openingBrace + cssRulesFromObject(settings.styles, pretty) + closingBrace;
+                element.innerHTML = selector + openingBrace + cssRulesFromObject(settings.styles, pretty) + closingBrace;
             });
         }
     };
