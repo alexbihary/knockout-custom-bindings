@@ -19,10 +19,10 @@
                 names.unshift('#' + el.id);
                 break;
             } else {
-                if (el == el.ownerDocument.documentElement) names.unshift(el.tagName);
+                if (el == el.ownerDocument.documentElement) names.unshift(el.tagName.toLowerCase());
                 else {
                     for (var c = 1, e = el; e.previousElementSibling; e = e.previousElementSibling, c++);
-                    names.unshift(el.tagName + ":nth-child(" + c + ")");
+                    names.unshift(el.tagName.toLowerCase() + ":nth-child(" + c + ")");
                 }
                 el = el.parentNode;
             }
